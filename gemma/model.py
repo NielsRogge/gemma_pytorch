@@ -352,7 +352,7 @@ class GemmaDecoderLayer(nn.Module):
         return hidden_states
 
 
-class GemmaModel(nn.Module, PyTorchModelHubMixin):
+class GemmaModel(nn.Module):
 
     def __init__(self, config: gemma_config.GemmaConfig):
         super().__init__()
@@ -385,7 +385,7 @@ class GemmaModel(nn.Module, PyTorchModelHubMixin):
         return hidden_states
 
 
-class GemmaForCausalLM(nn.Module):
+class GemmaForCausalLM(nn.Module, PyTorchModelHubMixin):
 
     def __init__(
         self,
