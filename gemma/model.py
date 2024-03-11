@@ -22,6 +22,8 @@ from typing import Any, List, Optional, Sequence, Tuple, Union
 from gemma import config as gemma_config
 from gemma import tokenizer
 
+from huggingface_hub import PyTorchModelHubMixin
+
 
 class Sampler(nn.Module):
 
@@ -350,7 +352,7 @@ class GemmaDecoderLayer(nn.Module):
         return hidden_states
 
 
-class GemmaModel(nn.Module):
+class GemmaModel(nn.Module, PyTorchModelHubMixin):
 
     def __init__(self, config: gemma_config.GemmaConfig):
         super().__init__()
